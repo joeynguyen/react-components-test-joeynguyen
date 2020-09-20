@@ -17,5 +17,7 @@ npm install react-components-test-joeynguyen
 To support a shorter `import` syntax for apps that use this library, i.e., `import ps-react/lib/Label` --> `import ps-react/Label`, we need to use a slightly more involved way of publishing our package
 
 1. Copy files to **lib** directory and generate new package.json inside there as well
-  - Run `npm run build:lib` from the root of the repo
-3. Run `npm publish` from the **lib** directory instead of from project root
+
+    - Run `npm run build:lib` from the root of the repo
+
+2. Run `npm publish` from the **lib** directory instead of from project root
