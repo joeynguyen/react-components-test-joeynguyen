@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInputBEM from 'ps-react/TextInputBEM';
+import TextInputBEM from 'ps-react-joeynguyen-test/TextInputBEM';
 
 /** Required TextBox with error */
 export default class ExampleError extends React.Component {

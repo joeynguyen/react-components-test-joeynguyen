@@ -32,8 +32,10 @@
     "deploy:docs": "gh-pages -d build/"
   },
   "dependencies": {
+    "babel-preset-react-app": "9.1.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "5.2.0"
   },
   "devDependencies": {
     "@babel/cli": "7.11.6",
