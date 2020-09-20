@@ -1,7 +1,8 @@
 {
-  "name": "ps-react-joeynguyen-test",
+  "name": "ps-react-joeynguyen-test-build-template",
   "version": "0.1.1",
   "main": "./lib/index.js",
+  "private": true,
   "engines": {
     "node": ">=10.0.0"
   },
@@ -22,13 +23,13 @@
     "gen:docs-watch": "npm run gen:docs -- --watch",
     "build:css": "cpx 'src/components/**/*.css' ./lib",
     "build:docs": "node scripts/build.js",
-    "build:commonjs": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
+    "build:components": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
     "prebuild:lib": "rimraf ./lib",
-    "build:lib": "npm run build:commonjs && npm run build:css",
+    "build:lib": "npm-run-all --parallel build:components build:css build:copy-files",
+    "build:copy-files": "node scripts/copyBuildFiles.js",
     "test": "node scripts/test.js",
     "predeploy:docs": "npm run build:docs",
-    "deploy:docs": "gh-pages -d build/",
-    "prepublish": "npm run build:lib"
+    "deploy:docs": "gh-pages -d build/"
   },
   "dependencies": {
     "react": "^16.13.1",

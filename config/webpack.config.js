@@ -290,7 +290,7 @@ module.exports = function(webpackEnv) {
         .filter(ext => useTypeScript || !ext.includes('ts')),
       alias: {
         // allows for our components to be easily referenced for imports
-        'ps-react': path.resolve(__dirname, '../src/components'),
+        'ps-react-joeynguyen-test': path.resolve(__dirname, '../src/components'),
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
