@@ -9,8 +9,8 @@ module.exports = {
   output: {
     dir: './dist',
     format: 'cjs',
-    assetFileNames: '[name].[hash][extname]',
-    entryFileNames: '[name].[hash].js',
+    assetFileNames: 'bundled[extname]',
+    entryFileNames: 'bundled.js',
   },
   plugins: [
     node_resolve(),
