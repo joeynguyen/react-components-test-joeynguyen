@@ -1,7 +1,7 @@
 {
   "name": "ps-react-joeynguyen-test",
   "version": "0.1.1",
-  "main": "./lib/index.js",
+  "main": "./dist/bundled.js",
   "engines": {
     "node": ">=10.0.0"
   },
@@ -25,6 +25,8 @@
     "build:commonjs": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js",
     "prebuild:lib": "rimraf ./lib",
     "build:lib": "npm run build:commonjs && npm run build:css",
+    "prerollup": "rimraf dist",
+    "rollup": "rollup -c",
     "test": "node scripts/test.js",
     "predeploy:docs": "npm run build:docs",
     "deploy:docs": "gh-pages -d build/",
@@ -40,6 +42,9 @@
     "@babel/plugin-proposal-class-properties": "7.10.4",
     "@babel/preset-env": "7.11.5",
     "@babel/preset-react": "7.10.4",
+    "@rollup/plugin-babel": "5.2.1",
+    "@rollup/plugin-node-resolve": "9.0.0",
+    "@rollup/plugin-replace": "^2.3.3",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.5.0",
@@ -93,6 +98,9 @@
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
     "rimraf": "2.6.1",
+    "rollup": "^2.28.1",
+    "rollup-plugin-hot-css": "0.4.0",
+    "rollup-plugin-uglify": "6.0.4",
     "sass-loader": "8.0.2",
     "semver": "6.3.0",
     "style-loader": "0.23.1",
