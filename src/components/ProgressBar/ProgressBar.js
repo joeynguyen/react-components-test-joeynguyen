@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './ProgressBar.module.scss';
 
 class ProgressBar extends React.Component {
   getColor = (percent) => {
@@ -14,7 +15,7 @@ class ProgressBar extends React.Component {
   render() {
     const {percent, width, height} = this.props;
     return (
-      <div style={{border: 'solid 1px lightgray', width: width}}>
+      <div className={styles['border-gray']} style={{width: width}}>
         <div style={{
           width: this.getWidthAsPercentOfTotalWidth(),
           height,
