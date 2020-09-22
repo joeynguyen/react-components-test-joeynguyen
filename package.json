@@ -18,14 +18,16 @@
   "scripts": {
     "prestart": "npm run gen:docs",
     "start": "npm-run-all --parallel start:docs gen:docs-watch",
-    "prerollup": "rimraf dist",
+    "prebuild": "rimraf dist",
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "test": "node scripts/test.js",
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "@babel/runtime": "^7.11.2",
+    "@babel/runtime": "^7.11.2"
+  },
+  "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

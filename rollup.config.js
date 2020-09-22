@@ -47,55 +47,41 @@ const sassOptions = {
 
 export default {
   input: './src/components/index.js',
-  // output: {
-  //   dir: './dist',
-  //   format: 'es',
-  //   // sourcemap: true,
-  //   assetFileNames: 'bundled[extname]',
-  //   entryFileNames: 'bundled.js',
-  // },
   output: [
 			{ file: pkg.main, format: 'cjs' },
 			{ file: pkg.module, format: 'es' }
   ],
   plugins: [
-    // replace({
-    //   "process.env.NODE_ENV": JSON.stringify("development")
-    // }),
     babel({
       babelHelpers: 'bundled',
       exclude: 'node_modules/**'
     }),
     node_resolve(),
-    // sass(sassOptions),
-    // sass({
-    //   // Write all styles to the bundle destination where .js is replaced by .css
-    //   output: true,
-    // }),
-    // sass(sassOptions),
     postcss({
       extract: true, // don't generate a separate CSS file
       modules: true,
       sourceMap: true,
       use: ['sass'],
       extensions: ['.css', '.scss'],
-      // plugins: [
-      // ],
-      // plugins: [
-      //   postcssModules({
-      //     getJSON (cssFileName, json, outputFileName) {
-      //       const cssName = path.basename(cssFileName, ".css");
-      //       console.log("cssName", cssName);
-      //       const jsonFileName = path.resolve("./build/" + cssName + ".json");
-      //       console.log("jsonFileName", jsonFileName);
-      //       fs.writeFileSync(jsonFileName, JSON.stringify(json));
-      //     }
-      //   })
-      // ]
+      plugins: [
+        postcssModules({
+          getJSON (cssFileName, json, filePath) {
+            fs.mkdirSync('dist/css', { recursive: true }, (err) => {
+              if (err) {
+                throw err;
+              }
+            });
+            // we can use this to write files/copy files to /dist
+            const cssName = path.basename(cssFileName, ".css");
+            const outputFilePath = path.resolve("./dist/css/" + cssName);
+            fs.copyFileSync(filePath, outputFilePath)
+          }
+        })
+      ]
     }),
     commonjs(),
     // uglify(),
     filesize(),
   ],
-  external: ['react', 'react-dom', 'prop-types', 'styled-components'],
+  external: Object.keys(pkg.peerDependencies || {}),
 }
