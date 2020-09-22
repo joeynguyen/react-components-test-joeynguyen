@@ -1,5 +1,5 @@
 import React from 'react';
-import Label from 'ps-react/lib/Label';
+import { Label } from 'ps-react-joeynguyen-test';
 
 /** Required label */
 export default function ExampleRequired() {

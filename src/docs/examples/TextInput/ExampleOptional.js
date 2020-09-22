@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInput from 'ps-react/lib/TextInput';
+import { TextInput } from 'ps-react-joeynguyen-test';
 
 /** Optional TextBox */
 export default class ExampleOptional extends React.Component {
