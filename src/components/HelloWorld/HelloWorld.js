@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './HelloWorld.module.scss';
 
 /** A super lame component that says Hello with a custom message. */
 function HelloWorld({message}) {
-  return <div>Hello {message}</div>
+  return <div className={styles.something}>Hello {message}</div>
 }
 
 HelloWorld.propTypes = {
