@@ -1,6 +1,6 @@
 {
   "name": "ps-react-joeynguyen-test",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
   "engines": {
