@@ -16,6 +16,10 @@
   ],
   "homepage": "https://www.joeynguyen.com/react-components-test-joeynguyen/",
   "scripts": {
+    "start:docs": "node scripts/start.js",
+    "gen:docs": "node scripts/generateComponentData.js",
+    "gen:docs-watch": "npm run gen:docs -- --watch",
+    "build:docs": "node scripts/build.js",
     "prestart": "npm run gen:docs",
     "start": "npm-run-all --parallel start:docs gen:docs-watch",
     "prebuild": "rimraf dist",
@@ -83,7 +87,6 @@
     "pnp-webpack-plugin": "1.6.4",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
-    "postcss-modules": "^3.2.2",
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
